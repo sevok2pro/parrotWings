@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import RxSwift
 
 class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDelegate {
 
-    var data: [String] = ["aaaaaaaaaaa", "bbbbbbbbb", "ccccccccc"]
-    var filteredData: [String] = []
+    var data: [String] = []
 
+    var searchBarInput$: BehaviorSubject<String> = BehaviorSubject(value: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view loaded")
+        _ = searchBarInput$
+            .flatMapLatest({pharse in dal.getUsers(filterPharse: pharse)})
+            .takeWhile({result in result.hasNext})
+            .map({result in result.data.map({user in user.name})})
+            .subscribe(onNext: {data in
+                self.data = data
+                self.tableView.reloadData()
+            })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,7 +44,7 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText);
+        self.searchBarInput$.onNext(searchText)
     }
 
     /*
