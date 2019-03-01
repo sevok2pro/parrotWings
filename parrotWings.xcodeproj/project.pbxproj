@@ -56,7 +56,6 @@
 				7240B0CCD528F7DD5A0FCEAE /* Pods-parrotWings.debug.xcconfig */,
 				52A204CDD4ED064E88E9A53F /* Pods-parrotWings.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
