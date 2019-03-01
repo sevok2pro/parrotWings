@@ -46,7 +46,7 @@
                                         </constraints>
                                         <state key="normal" title="Перевести PW"/>
                                         <connections>
-                                            <segue destination="ekf-tv-ujU" kind="show" id="arS-It-A7W"/>
+                                            <segue destination="nLB-MR-4u5" kind="show" id="yY0-2Z-Cby"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,46 +77,55 @@
             </objects>
             <point key="canvasLocation" x="1912.8" y="-804.64767616191909"/>
         </scene>
-        <!--sendMoney-->
-        <scene sceneID="KmZ-Ms-dzx">
+        <!--Select User For Send Money View Controller-->
+        <scene sceneID="XqO-pT-rV9">
             <objects>
-                <viewController title="sendMoney" id="ekf-tv-ujU" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YrE-IB-GQA">
+                <tableViewController id="nLB-MR-4u5" customClass="SelectUserForSendMoneyViewController" customModule="parrotWings" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JKv-Uv-0l2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0gJ-AM-9w2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ekf-tv-ujU" id="TAn-0s-alR"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="0gJ-AM-9w2" firstAttribute="width" secondItem="YrE-IB-GQA" secondAttribute="width" id="F5t-mA-NCw"/>
-                            <constraint firstItem="0gJ-AM-9w2" firstAttribute="centerX" secondItem="Qk2-V1-DOB" secondAttribute="centerX" id="eIO-Nb-Ccc"/>
-                            <constraint firstItem="0gJ-AM-9w2" firstAttribute="top" secondItem="Qk2-V1-DOB" secondAttribute="top" id="nyb-g0-Eut"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Qk2-V1-DOB"/>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="V4c-XA-nOs" id="tcm-6j-pVg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EGv-ru-DDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="V4c-XA-nOs">
-                    <connections>
-                        <outlet property="delegate" destination="ekf-tv-ujU" id="Spq-fM-s2e"/>
-                        <outlet property="searchBar" destination="0gJ-AM-9w2" id="GsC-bS-NcX"/>
-                        <outlet property="searchContentsController" destination="ekf-tv-ujU" id="Ff6-Uh-CT7"/>
-                        <outlet property="searchResultsDataSource" destination="ekf-tv-ujU" id="YN4-xX-W6x"/>
-                        <outlet property="searchResultsDelegate" destination="ekf-tv-ujU" id="eJo-4a-MXH"/>
-                    </connections>
-                </searchDisplayController>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Gck-jN-vAa">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="nLB-MR-4u5" id="8uw-fT-Dhv"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="1A4-46-0y6" customClass="SelectUserForSendMoneyViewControllerTableViewCell" customModule="parrotWings" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1A4-46-0y6" id="3H9-9l-QDj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p7-I8-0iZ">
+                                            <rect key="frame" x="16" y="11" width="23" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2p7-I8-0iZ" firstAttribute="width" secondItem="3H9-9l-QDj" secondAttribute="width" id="pen-xJ-Irh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="userName" destination="2p7-I8-0iZ" id="RMr-c9-akV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nLB-MR-4u5" id="IdY-xq-rd0"/>
+                            <outlet property="delegate" destination="nLB-MR-4u5" id="WSH-nM-cpd"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VD-Gr-r4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-805"/>
+            <point key="canvasLocation" x="2770" y="-805"/>
         </scene>
         <!--transactionHistory-->
         <scene sceneID="sUQ-cq-f84">

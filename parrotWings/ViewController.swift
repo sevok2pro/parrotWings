@@ -13,11 +13,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        _ = Observable.just("lol")
-            .subscribe(onNext: {next in
-                print(next);
-            })
         // Do any additional setup after loading the view, typically from a nib.
     }
     
