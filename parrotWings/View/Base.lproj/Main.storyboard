@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bdB-0t-ywm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bEm-Hb-UtG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -305,6 +305,76 @@
             </objects>
             <point key="canvasLocation" x="1912.8" y="-9.4452773613193415"/>
         </scene>
+        <!--Регистрация-->
+        <scene sceneID="D0u-N7-kGr">
+            <objects>
+                <viewController id="E7F-JU-PP5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yo1-bn-gUO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-Ak-RDC">
+                                <rect key="frame" x="113" y="318" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Зарегестрироваться"/>
+                                <connections>
+                                    <segue destination="bdB-0t-ywm" kind="show" id="tSk-HB-UNb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5lH-hf-BTa"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Регистрация" id="m4W-Q2-ICf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vf7-6J-SLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1044" y="707"/>
+        </scene>
+        <!--Авторизация-->
+        <scene sceneID="Ngu-UN-u10">
+            <objects>
+                <viewController id="iHR-h4-CU9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CyJ-SB-2bN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dz-Kz-kRZ">
+                                <rect key="frame" x="130" y="318" width="115" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Авторизоваться"/>
+                                <connections>
+                                    <segue destination="bdB-0t-ywm" kind="show" id="MGX-nt-MYJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OMZ-5M-Ld9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Авторизация" id="XIN-X8-LEI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Me-nB-sny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1044" y="-9"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="urZ-ga-IuZ">
+            <objects>
+                <tabBarController id="bEm-Hb-UtG" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w51-Xh-0nX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iHR-h4-CU9" kind="relationship" relationship="viewControllers" id="hCX-tw-5Xy"/>
+                        <segue destination="E7F-JU-PP5" kind="relationship" relationship="viewControllers" id="PgE-uO-PrP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmj-jE-ZO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2210" y="707"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8wa-Kn-Zwe">
             <objects>
@@ -322,7 +392,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj7-Bh-ryg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29.600000000000001" y="-8.5457271364317844"/>
+            <point key="canvasLocation" x="-12" y="-9"/>
         </scene>
         <!--Главная-->
         <scene sceneID="zcx-bh-yxF">
@@ -364,6 +434,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="tSk-HB-UNb"/>
         <segue reference="HDu-TN-fqF"/>
     </inferredMetricsTieBreakers>
 </document>
