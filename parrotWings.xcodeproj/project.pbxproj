@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3AF7134A284FD9ED701F537B /* Pods_parrotWings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */; };
 		E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686E322291E2A00DFAC33 /* AppDelegate.swift */; };
-		E7E686E622291E2A00DFAC33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686E522291E2A00DFAC33 /* ViewController.swift */; };
 		E7E686E922291E2A00DFAC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686E722291E2A00DFAC33 /* Main.storyboard */; };
 		E7E686EB22291E2B00DFAC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EA22291E2B00DFAC33 /* Assets.xcassets */; };
 		E7E686EE22291E2B00DFAC33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EC22291E2B00DFAC33 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,9 @@
 		E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */; };
 		E7E686FB222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */; };
 		E7E68701222957F800DFAC33 /* dal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68700222957F800DFAC33 /* dal.swift */; };
+		E7E68703222A5BC300DFAC33 /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68702222A5BC300DFAC33 /* userData.swift */; };
+		E7E68706222A612600DFAC33 /* AuthorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68705222A612600DFAC33 /* AuthorizeViewController.swift */; };
+		E7E68708222A614A00DFAC33 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68707222A614A00DFAC33 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,6 @@
 		7240B0CCD528F7DD5A0FCEAE /* Pods-parrotWings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parrotWings.debug.xcconfig"; path = "Target Support Files/Pods-parrotWings/Pods-parrotWings.debug.xcconfig"; sourceTree = "<group>"; };
 		E7E686E022291E2A00DFAC33 /* parrotWings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parrotWings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E686E322291E2A00DFAC33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7E686E522291E2A00DFAC33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7E686E822291E2A00DFAC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7E686EA22291E2B00DFAC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E686ED22291E2B00DFAC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +35,9 @@
 		E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewController.swift; sourceTree = "<group>"; };
 		E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		E7E68700222957F800DFAC33 /* dal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dal.swift; sourceTree = "<group>"; };
+		E7E68702222A5BC300DFAC33 /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		E7E68705222A612600DFAC33 /* AuthorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewController.swift; sourceTree = "<group>"; };
+		E7E68707222A614A00DFAC33 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +94,6 @@
 				E7E686FE2229567800DFAC33 /* Services */,
 				E7E686FD2229548500DFAC33 /* View */,
 				E7E686E322291E2A00DFAC33 /* AppDelegate.swift */,
-				E7E686E522291E2A00DFAC33 /* ViewController.swift */,
 				E7E686EA22291E2B00DFAC33 /* Assets.xcassets */,
 				E7E686EC22291E2B00DFAC33 /* LaunchScreen.storyboard */,
 				E7E686EF22291E2B00DFAC33 /* Info.plist */,
@@ -101,8 +104,8 @@
 		E7E686FD2229548500DFAC33 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */,
-				E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */,
+				E7E68709222A616A00DFAC33 /* Authorize */,
+				E7E68704222A60DA00DFAC33 /* SendMoneys */,
 				E7E686E722291E2A00DFAC33 /* Main.storyboard */,
 			);
 			path = View;
@@ -112,8 +115,27 @@
 			isa = PBXGroup;
 			children = (
 				E7E68700222957F800DFAC33 /* dal.swift */,
+				E7E68702222A5BC300DFAC33 /* userData.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E7E68704222A60DA00DFAC33 /* SendMoneys */ = {
+			isa = PBXGroup;
+			children = (
+				E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */,
+				E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */,
+			);
+			path = SendMoneys;
+			sourceTree = "<group>";
+		};
+		E7E68709222A616A00DFAC33 /* Authorize */ = {
+			isa = PBXGroup;
+			children = (
+				E7E68705222A612600DFAC33 /* AuthorizeViewController.swift */,
+				E7E68707222A614A00DFAC33 /* RegisterViewController.swift */,
+			);
+			path = Authorize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,10 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E686E622291E2A00DFAC33 /* ViewController.swift in Sources */,
 				E7E68701222957F800DFAC33 /* dal.swift in Sources */,
 				E7E686FB222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift in Sources */,
+				E7E68708222A614A00DFAC33 /* RegisterViewController.swift in Sources */,
+				E7E68706222A612600DFAC33 /* AuthorizeViewController.swift in Sources */,
 				E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */,
+				E7E68703222A5BC300DFAC33 /* userData.swift in Sources */,
 				E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

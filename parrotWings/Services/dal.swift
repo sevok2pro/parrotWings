@@ -26,6 +26,38 @@ class GetUsersResult {
     }
 }
 
+enum AuthorizeStatus {
+    case success
+    case incorrectUser
+}
+
+class AuthorizeResult {
+    let status: AuthorizeStatus;
+    let token: String?;
+    
+    init(status: AuthorizeStatus) {
+        self.status = status
+        self.token = status == .success ? String(Int.random(in: 0..<100)) : nil
+    }
+}
+
+enum CreateUserStatus {
+    case success
+    case emailAlredyUsed
+    case incorrectEmail
+    case weakEmail
+}
+
+class CreateUserResult {
+    let status: CreateUserStatus
+    let token: String?
+    
+    init(status: CreateUserStatus) {
+        self.status = status
+        self.token = status == .success ? String(Int.random(in: 0..<100)) : nil
+    }
+}
+
 class DAL {
     func getUsers(filterPharse: String?, portion: Int = 1, portionSize: Int = 20) -> Observable<GetUsersResult> {
         return Observable
@@ -35,6 +67,18 @@ class DAL {
                 portionSize: portionSize
             ))
             .delay(0.2, scheduler: MainScheduler.instance)
+    }
+    
+    
+    func authorize(login: String, password: String) -> Observable<AuthorizeResult> {
+        return Observable
+            .just(AuthorizeResult(status: .success))
+            .delay(1.0, scheduler: MainScheduler.instance)
+    }
+    
+    func createUser(login: String, password: String) -> Observable<CreateUserResult> {
+        return Observable
+            .just(CreateUserResult(status: .success))
     }
 }
 
