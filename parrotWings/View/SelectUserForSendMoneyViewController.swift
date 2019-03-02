@@ -14,13 +14,22 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
     var data: [String] = []
 
     var searchBarInput$: BehaviorSubject<String> = BehaviorSubject(value: "")
+    var scrollInput$: BehaviorSubject<Bool> = BehaviorSubject(value: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = searchBarInput$
-            .flatMapLatest({pharse in dal.getUsers(filterPharse: pharse)})
-            .takeWhile({result in result.hasNext})
-            .map({result in result.data.map({user in user.name})})
+            .flatMapLatest({pharse -> Observable<[String]> in
+                var portion: Int = 0;
+                return self.scrollInput$
+                    .flatMapFirst({event -> Observable<GetUsersResult> in
+                        portion = portion + 1
+                        return dal.getUsers(filterPharse: pharse, portion: portion)
+                    })
+                    .takeWhile({(result: GetUsersResult) -> Bool in result.hasNext})
+                    .map({(result: GetUsersResult) -> [String] in result.data.map({user in user.name})})
+                    .scan([], accumulator: {(acc: [String], next: [String]) -> [String] in acc + next})
+            })
             .subscribe(onNext: {data in
                 self.data = data
                 self.tableView.reloadData()
@@ -45,6 +54,14 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchBarInput$.onNext(searchText)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentHeight = Float(scrollView.contentSize.height)
+        let contentScroll = Float(scrollView.contentOffset.y + scrollView.frame.size.height)
+        if(contentScroll / contentHeight > 1) {
+            self.scrollInput$.onNext(true)
+        }
     }
 
     /*

@@ -28,11 +28,13 @@ class GetUsersResult {
 
 class DAL {
     func getUsers(filterPharse: String?, portion: Int = 1, portionSize: Int = 20) -> Observable<GetUsersResult> {
-        return Observable.just(GetUsersResult(
-            filterPharse: filterPharse ?? "",
-            portion: portion,
-            portionSize: portionSize
-        ))
+        return Observable
+            .just(GetUsersResult(
+                filterPharse: filterPharse ?? "",
+                portion: portion,
+                portionSize: portionSize
+            ))
+            .delay(0.2, scheduler: MainScheduler.instance)
     }
 }
 
