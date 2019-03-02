@@ -30,7 +30,7 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
                     .map({(result: GetUsersResult) -> [String] in result.data.map({user in user.name})})
                     .scan([], accumulator: {(acc: [String], next: [String]) -> [String] in acc + next})
             })
-            .subscribe(onNext: {data in
+            .subscribe(onNext: {(data: [String]) in
                 self.data = data
                 self.tableView.reloadData()
             })
