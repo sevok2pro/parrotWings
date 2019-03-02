@@ -115,7 +115,7 @@
 				E7E68709222A616A00DFAC33 /* Authorize */,
 				E7E68704222A60DA00DFAC33 /* SendMoneys */,
 				E7E6870E222A914200DFAC33 /* MainBoard */,
-				E7E68711222A99B000DFAC33 /* TransactionDetailViewController.swift */,
+				E7E68713222A9DF300DFAC33 /* DetailTransaction */,
 				E7E686E722291E2A00DFAC33 /* Main.storyboard */,
 			);
 			path = View;
@@ -156,6 +156,14 @@
 				E7E6870A222A8D3C00DFAC33 /* MainBoardViewController.swift */,
 			);
 			path = MainBoard;
+			sourceTree = "<group>";
+		};
+		E7E68713222A9DF300DFAC33 /* DetailTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				E7E68711222A99B000DFAC33 /* TransactionDetailViewController.swift */,
+			);
+			path = DetailTransaction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
