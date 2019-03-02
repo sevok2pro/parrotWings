@@ -10,6 +10,7 @@ import UIKit
 
 class SelectUserForSendMoneyViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
+    var userUid: String!;
     
     override func awakeFromNib() {
         super.awakeFromNib()

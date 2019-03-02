@@ -13,7 +13,7 @@
         <!--mainBoard-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="mainBoard" id="BYZ-38-t0r" customClass="ViewController" customModule="parrotWings" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="mainBoard" id="BYZ-38-t0r" customClass="MainBoardViewController" customModule="parrotWings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 PW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E3-SM-MFe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E3-SM-MFe">
                                         <rect key="frame" x="0.0" y="116" width="375" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kLX-Hq-rmJ"/>
@@ -62,18 +62,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Ok-56-khC"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="PYo-ef-BpV" id="ZCs-66-Mwy"/>
+                        <outlet property="balanceField" destination="3E3-SM-MFe" id="a3Y-wf-BQl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="PYo-ef-BpV">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="F0g-qu-RdT"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="XEp-xO-lR6"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="tF2-Ti-mRt"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="ykt-Mz-peS"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1912.8" y="-804.64767616191909"/>
         </scene>
@@ -131,13 +123,13 @@
         <!--SendMoney-->
         <scene sceneID="iU6-05-qfL">
             <objects>
-                <viewController title="SendMoney" id="7J2-EG-rRk" sceneMemberID="viewController">
+                <viewController title="SendMoney" id="7J2-EG-rRk" customClass="SendMoneyViewController" customModule="parrotWings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PyF-hI-n8B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="pgJ-TP-hqZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="157.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="187"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Получатель:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3x-WR-uWa">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -145,29 +137,29 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vasya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gc-Dm-YQx">
-                                        <rect key="frame" x="0.0" y="29.5" width="375" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gc-Dm-YQx">
+                                        <rect key="frame" x="0.0" y="29.5" width="375" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ5-Fc-6EV">
-                                        <rect key="frame" x="0.0" y="59" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCl-hT-ZBm">
-                                        <rect key="frame" x="0.0" y="88.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="118" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lB-XT-b5x">
-                                        <rect key="frame" x="0.0" y="127.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="157" width="375" height="30"/>
                                         <state key="normal" title="Отправить"/>
                                         <connections>
-                                            <segue destination="84B-DM-r9s" kind="showDetail" id="OEu-IW-3l7"/>
+                                            <segue destination="84B-DM-r9s" kind="showDetail" identifier="ShowDetailTransaction" id="OEu-IW-3l7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -180,6 +172,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qKJ-M1-Tji"/>
                     </view>
+                    <connections>
+                        <outlet property="amountField" destination="fCl-hT-ZBm" id="hcn-RB-PlT"/>
+                        <outlet property="recipientUserField" destination="8gc-Dm-YQx" id="l7k-YY-Wfz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUL-Ub-2O7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,70 +184,70 @@
         <!--transactionDetails-->
         <scene sceneID="Xj7-df-dmC">
             <objects>
-                <viewController title="transactionDetails" id="84B-DM-r9s" sceneMemberID="viewController">
+                <viewController title="transactionDetails" id="84B-DM-r9s" customClass="TransactionDetailViewController" customModule="parrotWings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JPB-dx-jOt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k3r-lM-XWo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="214.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="244"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статус транзакции №3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1af-qT-dOu">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1af-qT-dOu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отправитель:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-7I-Kx4">
-                                        <rect key="frame" x="0.0" y="20.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vasya1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqb-7R-pRH">
-                                        <rect key="frame" x="0.0" y="41" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Получатель:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peE-Te-BFh">
-                                        <rect key="frame" x="0.0" y="61.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="91" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vasya2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-25-F6H">
-                                        <rect key="frame" x="0.0" y="82" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="111.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kh-7C-Mh9">
-                                        <rect key="frame" x="0.0" y="102.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="132" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyp-kc-ndE">
-                                        <rect key="frame" x="0.0" y="123" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="152.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статус:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKV-fT-gzE">
-                                        <rect key="frame" x="0.0" y="143.5" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="173" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Успешно выполнена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-35-Ume">
-                                        <rect key="frame" x="0.0" y="164" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="193.5" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48o-zD-oQ9">
-                                        <rect key="frame" x="0.0" y="184.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="214" width="375" height="30"/>
                                         <state key="normal" title="На главный экран"/>
                                         <connections>
                                             <segue destination="bdB-0t-ywm" kind="show" id="3Up-sl-BHD"/>
@@ -268,6 +264,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q0f-Rm-ea2"/>
                     </view>
+                    <connections>
+                        <outlet property="transactionNumberField" destination="1af-qT-dOu" id="cLc-2f-3x3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlJ-oJ-bYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -532,7 +531,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MGX-nt-MYJ"/>
-        <segue reference="HDu-TN-fqF"/>
+        <segue reference="3Up-sl-BHD"/>
+        <segue reference="OEu-IW-3l7"/>
     </inferredMetricsTieBreakers>
 </document>

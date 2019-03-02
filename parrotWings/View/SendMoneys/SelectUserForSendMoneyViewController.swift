@@ -49,6 +49,8 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
             fatalError("can not view this cell type")
         }
         cell.userName.text = data[indexPath.row];
+        // TODO: add real user uid
+        cell.userUid = data[indexPath.row]
         return cell
     }
     
@@ -64,14 +66,16 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
         }
     }
 
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let cell = sender as? SelectUserForSendMoneyViewControllerTableViewCell else {
+            fatalError("bad cell")
+        }
+        guard let sendMoneyView = segue.destination as? SendMoneyViewController else {
+            fatalError("incorrect view destinition")
+        }
+        sendMoneyView.recipientUserUid = cell.userUid;
     }
-    */
+    
 
 }

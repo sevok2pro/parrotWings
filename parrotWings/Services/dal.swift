@@ -58,6 +58,22 @@ class CreateUserResult {
     }
 }
 
+enum TransactionStatus {
+    case success
+    case notEnouthMoney
+    case unknowError // TOOD: handle smt strange for retry transaction
+}
+
+class TransactionResults {
+    let status: TransactionStatus
+    let transactionId: String
+    
+    init(status: TransactionStatus = .success) {
+        self.status = status
+        self.transactionId = String(Int.random(in: 0..<100))
+    }
+}
+
 class DAL {
     func getUsers(filterPharse: String?, portion: Int = 1, portionSize: Int = 20) -> Observable<GetUsersResult> {
         return Observable
@@ -79,6 +95,19 @@ class DAL {
     func createUser(login: String, password: String) -> Observable<CreateUserResult> {
         return Observable
             .just(CreateUserResult(status: .success))
+            .delay(1.0, scheduler: MainScheduler.instance)
+    }
+    
+    func getUserBalance(token: String) -> Observable<String> {
+        return Observable
+            .just(String(Int.random(in: 0..<10000)))
+            .delay(1.0, scheduler: MainScheduler.instance)
+    }
+    
+    func makeTransaction(recipientUserUid: String, amount: Int) -> Observable<TransactionResults> {
+        return Observable
+            .just(TransactionResults())
+            .delay(1.0, scheduler: MainScheduler.instance)
     }
 }
 
