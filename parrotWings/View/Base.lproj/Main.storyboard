@@ -338,7 +338,10 @@
                                         <rect key="frame" x="0.0" y="71" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="changeOriginPassword:" destination="E7F-JU-PP5" eventType="editingChanged" id="jDr-0Y-WKP"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторите пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g6-xA-SOw">
                                         <rect key="frame" x="0.0" y="101" width="375" height="20.5"/>
@@ -350,13 +353,22 @@
                                         <rect key="frame" x="0.0" y="121.5" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="changeSubPassword:" destination="E7F-JU-PP5" eventType="editingChanged" id="cPB-Db-Fbo"/>
+                                        </connections>
                                     </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введенные пароли не совпадают" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eag-CJ-dbN">
+                                        <rect key="frame" x="0.0" y="151.5" width="375" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.73091402202072531" green="0.14030289588808365" blue="0.19644311101734929" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-Ak-RDC">
                                         <rect key="frame" x="0.0" y="151.5" width="375" height="30"/>
                                         <state key="normal" title="Зарегестрироваться"/>
                                         <connections>
-                                            <segue destination="bdB-0t-ywm" kind="show" id="tSk-HB-UNb"/>
+                                            <segue destination="bdB-0t-ywm" kind="show" identifier="MoveToMainApp" id="tSk-HB-UNb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -370,6 +382,12 @@
                         <viewLayoutGuide key="safeArea" id="5lH-hf-BTa"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Регистрация" id="m4W-Q2-ICf"/>
+                    <connections>
+                        <outlet property="alertMessage" destination="Eag-CJ-dbN" id="KvM-dW-cjC"/>
+                        <outlet property="emailField" destination="s3T-0M-b6H" id="cxe-nT-hKx"/>
+                        <outlet property="passwordField" destination="aQy-Wq-XzJ" id="WWc-1K-7Lp"/>
+                        <outlet property="subPasswordField" destination="Ml6-m4-zZM" id="qLq-M2-70s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vf7-6J-SLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,13 +426,13 @@
                                         <rect key="frame" x="0.0" y="71" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Dz-Kz-kRZ">
                                         <rect key="frame" x="0.0" y="101" width="375" height="30"/>
                                         <state key="normal" title="Авторизоваться"/>
                                         <connections>
-                                            <segue destination="bdB-0t-ywm" kind="show" id="MGX-nt-MYJ"/>
+                                            <segue destination="bdB-0t-ywm" kind="show" identifier="MoveToMainApp" id="MGX-nt-MYJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -428,6 +446,10 @@
                         <viewLayoutGuide key="safeArea" id="OMZ-5M-Ld9"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Авторизация" id="XIN-X8-LEI"/>
+                    <connections>
+                        <outlet property="emailField" destination="FBo-t9-fbv" id="83F-52-9Qk"/>
+                        <outlet property="passwordField" destination="ZIl-m5-j9r" id="z2N-tW-ceh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Me-nB-sny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
