@@ -7,5 +7,4 @@ target 'parrotWings' do
 
   # Pods for parrotWings
   pod 'RxSwift', '~> 4.0'
-  pod 'Swinject', '~> 1.1.4'
 end

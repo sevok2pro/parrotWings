@@ -12,7 +12,6 @@
 		E7E686E922291E2A00DFAC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686E722291E2A00DFAC33 /* Main.storyboard */; };
 		E7E686EB22291E2B00DFAC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EA22291E2B00DFAC33 /* Assets.xcassets */; };
 		E7E686EE22291E2B00DFAC33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EC22291E2B00DFAC33 /* LaunchScreen.storyboard */; };
-		E7E686F62229203800DFAC33 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E7E686F52229203800DFAC33 /* Podfile */; };
 		E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */; };
 		E7E686FB222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */; };
 		E7E68701222957F800DFAC33 /* DAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68700222957F800DFAC33 /* DAL.swift */; };
@@ -35,7 +34,6 @@
 		E7E686EA22291E2B00DFAC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7E686ED22291E2B00DFAC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7E686EF22291E2B00DFAC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7E686F52229203800DFAC33 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E7E686F82229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewController.swift; sourceTree = "<group>"; };
 		E7E686FA222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		E7E68700222957F800DFAC33 /* DAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAL.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			children = (
 				E7E686E222291E2A00DFAC33 /* parrotWings */,
 				E7E686E122291E2A00DFAC33 /* Products */,
-				E7E686F52229203800DFAC33 /* Podfile */,
 				DD6F2E517CA60006326A1613 /* Pods */,
 				36179A19C1EA82573EA1F431 /* Frameworks */,
 			);
@@ -228,7 +225,6 @@
 			files = (
 				E7E686EE22291E2B00DFAC33 /* LaunchScreen.storyboard in Resources */,
 				E7E686EB22291E2B00DFAC33 /* Assets.xcassets in Resources */,
-				E7E686F62229203800DFAC33 /* Podfile in Resources */,
 				E7E686E922291E2A00DFAC33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +243,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-parrotWings/Pods-parrotWings-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -255,7 +250,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
