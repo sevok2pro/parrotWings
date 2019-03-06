@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="pgJ-TP-hqZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="187"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="187"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Получатель:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3x-WR-uWa">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -531,6 +531,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="KCT-Wh-bBI"/>
         <segue reference="3Up-sl-BHD"/>
         <segue reference="OEu-IW-3l7"/>
     </inferredMetricsTieBreakers>
