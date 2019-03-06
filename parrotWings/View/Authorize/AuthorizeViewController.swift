@@ -13,8 +13,7 @@ class AuthorizeViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print("authorize controller shown")
+        super.viewDidLoad();
         // Do any additional setup after loading the view.
     }
     
