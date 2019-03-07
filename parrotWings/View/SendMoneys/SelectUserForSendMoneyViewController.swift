@@ -10,30 +10,14 @@ import UIKit
 import RxSwift
 
 class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDelegate {
-
-    var data: [String] = []
-
-    var searchBarInput$: BehaviorSubject<String> = BehaviorSubject(value: "")
-    var scrollInput$: BehaviorSubject<Bool> = BehaviorSubject(value: true)
+    var data: [String]!
+    var onNeedMoreUsers: (() -> Void)!
+    var onSearchPharseChange: ((_ searchPharse: String) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = searchBarInput$
-            .flatMapLatest({pharse -> Observable<[String]> in
-                var portion: Int = 0;
-                return self.scrollInput$
-                    .flatMapFirst({event -> Observable<GetUsersResult> in
-                        portion = portion + 1
-                        return dal.getUsers(filterPharse: pharse, portion: portion)
-                    })
-                    .takeWhile({(result: GetUsersResult) -> Bool in result.hasNext})
-                    .map({(result: GetUsersResult) -> [String] in result.data.map({user in user.name})})
-                    .scan([], accumulator: {(acc: [String], next: [String]) -> [String] in acc + next})
-            })
-            .subscribe(onNext: {(data: [String]) in
-                self.data = data
-                self.tableView.reloadData()
-            })
+        selectUserForSendMoneyViewModel.configure(view: self)
+
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,24 +33,22 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
             fatalError("can not view this cell type")
         }
         cell.userName.text = data[indexPath.row];
-        // TODO: add real user uid
         cell.userUid = data[indexPath.row]
         return cell
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchBarInput$.onNext(searchText)
+        self.onSearchPharseChange(searchText)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentHeight = Float(scrollView.contentSize.height)
         let contentScroll = Float(scrollView.contentOffset.y + scrollView.frame.size.height)
         if(contentScroll / contentHeight > 1) {
-            self.scrollInput$.onNext(true)
+            self.onNeedMoreUsers()
         }
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? SelectUserForSendMoneyViewControllerTableViewCell else {
             fatalError("bad cell")
@@ -76,6 +58,4 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
         }
         sendMoneyView.recipientUserUid = cell.userUid;
     }
-    
-
 }

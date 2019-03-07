@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3AF7134A284FD9ED701F537B /* Pods_parrotWings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */; };
+		E70134DC2230DD2C00975B31 /* MainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */; };
+		E70134DE2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */; };
+		E70134E02230DFB400975B31 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DF2230DFB400975B31 /* ViewModel.swift */; };
+		E75DBD0F2230FBBC00091262 /* SendMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */; };
 		E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686E322291E2A00DFAC33 /* AppDelegate.swift */; };
 		E7E686E922291E2A00DFAC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686E722291E2A00DFAC33 /* Main.storyboard */; };
 		E7E686EB22291E2B00DFAC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EA22291E2B00DFAC33 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 		38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parrotWings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A204CDD4ED064E88E9A53F /* Pods-parrotWings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parrotWings.release.xcconfig"; path = "Target Support Files/Pods-parrotWings/Pods-parrotWings.release.xcconfig"; sourceTree = "<group>"; };
 		7240B0CCD528F7DD5A0FCEAE /* Pods-parrotWings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parrotWings.debug.xcconfig"; path = "Target Support Files/Pods-parrotWings/Pods-parrotWings.debug.xcconfig"; sourceTree = "<group>"; };
+		E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardViewModel.swift; sourceTree = "<group>"; };
+		E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewModel.swift; sourceTree = "<group>"; };
+		E70134DF2230DFB400975B31 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyViewModel.swift; sourceTree = "<group>"; };
 		E7E686E022291E2A00DFAC33 /* parrotWings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parrotWings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E686E322291E2A00DFAC33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E686E822291E2A00DFAC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +83,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E70134DA2230DCFC00975B31 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */,
+				E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */,
+				E70134DF2230DFB400975B31 /* ViewModel.swift */,
+				E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E7E686D722291E2A00DFAC33 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +115,7 @@
 		E7E686E222291E2A00DFAC33 /* parrotWings */ = {
 			isa = PBXGroup;
 			children = (
+				E70134DA2230DCFC00975B31 /* ViewModels */,
 				E7E686FE2229567800DFAC33 /* Services */,
 				E7E686FD2229548500DFAC33 /* View */,
 				E7E686E322291E2A00DFAC33 /* AppDelegate.swift */,
@@ -285,13 +305,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70134DC2230DD2C00975B31 /* MainBoardViewModel.swift in Sources */,
 				E7E6870D222A8F4900DFAC33 /* SendMoneyViewController.swift in Sources */,
 				E7E68701222957F800DFAC33 /* DAL.swift in Sources */,
 				E7E686FB222936BA00DFAC33 /* SelectUserForSendMoneyViewControllerTableViewCell.swift in Sources */,
 				E7E68708222A614A00DFAC33 /* RegisterViewController.swift in Sources */,
 				E7E68706222A612600DFAC33 /* AuthorizeViewController.swift in Sources */,
+				E70134E02230DFB400975B31 /* ViewModel.swift in Sources */,
 				E7E6870B222A8D3C00DFAC33 /* MainBoardViewController.swift in Sources */,
+				E70134DE2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift in Sources */,
 				E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */,
+				E75DBD0F2230FBBC00091262 /* SendMoneyViewModel.swift in Sources */,
 				E7E68710222A93CA00DFAC33 /* UserBalanceService.swift in Sources */,
 				E7E68703222A5BC300DFAC33 /* UserData.swift in Sources */,
 				E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */,
