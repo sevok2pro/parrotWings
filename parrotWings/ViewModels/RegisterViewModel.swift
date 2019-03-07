@@ -35,6 +35,9 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
             )
         }
         view.tryCreateUser = {(onComplete) in
+            if(self.passwordsIsNotEqual == false) {
+                return;
+            }
             let email: String = view.emailField.text ?? "";
             let password: String = view.passwordField.text ?? "";
             _ = dal.createUser(login: email, password: password)
