@@ -8,6 +8,14 @@
 
 import UIKit
 
+class SuccessTransaction{
+    let transactionId: String
+    
+    init(transactionId: String) {
+        self.transactionId = transactionId
+    }
+}
+
 class SendMoneyViewController: UIViewController {
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var recipientUserField: UILabel!
@@ -22,11 +30,11 @@ class SendMoneyViewController: UIViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard let _ = sender as? String else {
+        guard let _ = sender as? SuccessTransaction else {
             self.trySendMoney({transactionId in
                 self.performSegue(
                     withIdentifier: "ShowDetailTransaction",
-                    sender: transactionId
+                    sender: SuccessTransaction(transactionId: transactionId)
                 )
             })
             return false

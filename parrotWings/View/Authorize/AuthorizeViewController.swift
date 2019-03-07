@@ -12,27 +12,19 @@ class AuthorizeViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    var tryAuth: ((_ onSuccess: @escaping () -> Void) -> Void)!
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         // Do any additional setup after loading the view.
-    }
-    
-    func tryAuth() {
-        let email: String = self.emailField.text ?? "";
-        let password: String = self.passwordField.text ?? "";
-        _ = dal.authorize(login: email, password: password)
-            .take(1)
-            .subscribe(onNext: {next in
-                if(next.status == .success && next.token != nil) {
-                    userData.setAuthToken(token: next.token!)
-                    self.performSegue(withIdentifier: "MoveToMainApp", sender: "authSuccess")
-                }
-            })
+        authorizeViewModel.configure(view: self)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let status = sender as? String else {
-            self.tryAuth()
+            self.tryAuth({() in
+                self.performSegue(withIdentifier: "MoveToMainApp", sender: "authSuccess")
+            })
             return false
         }
         if(status == "authSuccess") {
