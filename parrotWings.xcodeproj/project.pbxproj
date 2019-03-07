@@ -13,6 +13,7 @@
 		E70134E02230DFB400975B31 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DF2230DFB400975B31 /* ViewModel.swift */; };
 		E75DBD0F2230FBBC00091262 /* SendMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */; };
 		E75DBD112231082800091262 /* AuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DBD102231082800091262 /* AuthorizeViewModel.swift */; };
+		E75DBD1322310C0100091262 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DBD1222310C0100091262 /* RegisterViewModel.swift */; };
 		E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E686E322291E2A00DFAC33 /* AppDelegate.swift */; };
 		E7E686E922291E2A00DFAC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E686E722291E2A00DFAC33 /* Main.storyboard */; };
 		E7E686EB22291E2B00DFAC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E686EA22291E2B00DFAC33 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		E70134DF2230DFB400975B31 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyViewModel.swift; sourceTree = "<group>"; };
 		E75DBD102231082800091262 /* AuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewModel.swift; sourceTree = "<group>"; };
+		E75DBD1222310C0100091262 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E7E686E022291E2A00DFAC33 /* parrotWings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parrotWings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E686E322291E2A00DFAC33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E686E822291E2A00DFAC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				E70134DF2230DFB400975B31 /* ViewModel.swift */,
 				E75DBD0E2230FBBC00091262 /* SendMoneyViewModel.swift */,
 				E75DBD102231082800091262 /* AuthorizeViewModel.swift */,
+				E75DBD1222310C0100091262 /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				E70134E02230DFB400975B31 /* ViewModel.swift in Sources */,
 				E7E6870B222A8D3C00DFAC33 /* MainBoardViewController.swift in Sources */,
 				E70134DE2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift in Sources */,
+				E75DBD1322310C0100091262 /* RegisterViewModel.swift in Sources */,
 				E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */,
 				E75DBD112231082800091262 /* AuthorizeViewModel.swift in Sources */,
 				E75DBD0F2230FBBC00091262 /* SendMoneyViewModel.swift in Sources */,
