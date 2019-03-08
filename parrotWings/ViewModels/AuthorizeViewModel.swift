@@ -10,30 +10,27 @@ import Foundation
 
 class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
     public override func configure(view: AuthorizeViewController) {
-        view.tryAuth = {onSuccess in
-            print("try auth")
+        view.tryAuth = {(onSuccess, onFailure) in
             let email: String = view.emailField.text ?? "";
             let password: String = view.passwordField.text ?? "";
             _ = dal.authorize(login: email, password: password)
                 .subscribe(onNext: {next in
-                    userData.setAuthToken(token: next.token!)
-                    onSuccess()
+                    switch next.status {
+                    case .success:
+                        onSuccess()
+                        userData.setAuthToken(token: "lol")
+                        break;
+                    case .emptyAuthData:
+                        onFailure("Введите логин и пароль")
+                        break;
+                    case .incorrectAuthData:
+                        onFailure("Неверный логин или пароль")
+                        break;
+                    case _:
+                        onFailure("Произошла неизвестная ошибка")
+                    }
                 })
         }
-//        view.tryAuth = {onSuccess in {
-//
-//            let email: String = view.emailField.text ?? "";
-//            let password: String = view.passwordField.text ?? "";
-//            _ = dal.authorize(login: email, password: password)
-//                .take(1)
-//                .subscribe(onNext: {next in
-//                    onSuccess();
-//                    if(next.status == .success && next.token != nil) {
-//                        userData.setAuthToken(token: next.token!)
-//                        self.performSegue(withIdentifier: "MoveToMainApp", sender: "authSuccess")
-//                    }
-//                })
-//        }}
     }
 }
 

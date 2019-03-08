@@ -29,7 +29,9 @@ class GetUsersResult {
 
 enum AuthorizeStatus {
     case success
-    case incorrectUser
+    case incorrectAuthData
+    case emptyAuthData
+    case unknowError
 }
 
 class AuthorizeResult {
@@ -88,9 +90,36 @@ class DAL {
     
     
     func authorize(login: String, password: String) -> Observable<AuthorizeResult> {
-        return Observable
-            .just(AuthorizeResult(status: .success))
-            .delay(1.0, scheduler: MainScheduler.instance)
+        let params = [
+            "email": login,
+            "password": password,
+        ]
+        
+        return Observable<AuthorizeResult>
+            .create({observer in
+                request("http://193.124.114.46:3001/sessions/create", method: .post, parameters: params)
+                    .response(completionHandler: {result in
+                        let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
+                        let response = (result.response?.statusCode ?? 0, utf8Text)
+                        switch response {
+                        case (201, _):
+                            observer.onNext(AuthorizeResult(status: .success))
+                            break;
+                        case (400, "You must send email and password."):
+                            observer.onNext(AuthorizeResult(status: .emptyAuthData))
+                            break;
+                        case (401, "Invalid email or password."):
+                            observer.onNext(AuthorizeResult(status: .incorrectAuthData))
+                            break;
+                        case (_, _):
+                            observer.onNext(AuthorizeResult(status: .unknowError))
+                            break;
+                        }
+                        observer.onCompleted()
+                    })
+                
+                return Disposables.create()
+            })
     }
     
     func createUser(login: String, password: String) -> Observable<CreateUserResult> {

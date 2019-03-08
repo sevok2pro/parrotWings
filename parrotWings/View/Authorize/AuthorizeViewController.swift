@@ -12,19 +12,28 @@ class AuthorizeViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    var tryAuth: ((_ onSuccess: @escaping () -> Void) -> Void)!
+    var tryAuth: ((_ onSuccess: @escaping () -> Void, _ onFailure: @escaping (_ error: String) -> Void) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        // Do any additional setup after loading the view.
         authorizeViewModel.configure(view: self)
+    }
+    
+    func handleSuccessAuth() {
+        self.performSegue(withIdentifier: "MoveToMainApp", sender: "authSuccess")
+    }
+    
+    func handleFailureAuth(_ error: String) {
+        let alert = UIAlertController(title: "Ошибка!", message: error, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Понял", style: UIAlertAction.Style.default, handler: {_ in
+            self.emailField.becomeFirstResponder()
+        }))
+        self.present(alert, animated: true)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let status = sender as? String else {
-            self.tryAuth({() in
-                self.performSegue(withIdentifier: "MoveToMainApp", sender: "authSuccess")
-            })
+            self.tryAuth(self.handleSuccessAuth, self.handleFailureAuth)
             return false
         }
         if(status == "authSuccess") {
