@@ -122,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgJ-TP-hqZ">
-                                <rect key="frame" x="20" y="40" width="335" height="231"/>
+                                <rect key="frame" x="20" y="84" width="335" height="231"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Получатель:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3x-WR-uWa">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -527,8 +527,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yY0-2Z-Cby"/>
-        <segue reference="3Up-sl-BHD"/>
+        <segue reference="tSk-HB-UNb"/>
         <segue reference="OEu-IW-3l7"/>
     </inferredMetricsTieBreakers>
 </document>

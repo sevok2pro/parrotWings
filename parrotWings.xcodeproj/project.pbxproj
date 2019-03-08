@@ -121,8 +121,8 @@
 		E7E686E222291E2A00DFAC33 /* parrotWings */ = {
 			isa = PBXGroup;
 			children = (
-				E70134DA2230DCFC00975B31 /* ViewModels */,
 				E7E686FE2229567800DFAC33 /* Services */,
+				E70134DA2230DCFC00975B31 /* ViewModels */,
 				E7E686FD2229548500DFAC33 /* View */,
 				E7E686E322291E2A00DFAC33 /* AppDelegate.swift */,
 				E7E686EA22291E2B00DFAC33 /* Assets.xcassets */,
@@ -267,6 +267,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-parrotWings/Pods-parrotWings-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -274,6 +275,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);

@@ -22,6 +22,7 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
     }
     
     override func configure(view: RegisterViewController) {
+        self.passwordsIsNotEqual = false
         view.onChangeMainPassword = {() in
             view.alertMessage.isHidden = self.checkPasswordsForEquals(
                 main: view.passwordField.text ?? "",
@@ -34,18 +35,27 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
                 sub: view.subPasswordField.text ?? ""
             )
         }
-        view.tryCreateUser = {(onComplete) in
-            if(self.passwordsIsNotEqual == false) {
+        view.tryCreateUser = {(onComplete, onError) in
+            if(self.passwordsIsNotEqual == true) {
                 return;
             }
             let email: String = view.emailField.text ?? "";
             let password: String = view.passwordField.text ?? "";
             _ = dal.createUser(login: email, password: password)
-                .take(1)
                 .subscribe(onNext: {next in
-                    if(next.status == .success && next.token != nil) {
-                        userData.setAuthToken(token: next.token!)
+                    switch next.status {
+                    case .success:
+                        userData.setAuthToken(token: "lol")
                         onComplete()
+                        break;
+                    case .emptyUserData:
+                        onError("Введите e-mail")
+                        break;
+                    case .duplicateEmail:
+                        onError("Текущий e-mail уже используется")
+                        break;
+                    case _:
+                        onError("Произошла неизвестная ошибка")
                     }
                 })
         }

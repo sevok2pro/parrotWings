@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 class PublicUser {
     let name: String
@@ -43,9 +44,9 @@ class AuthorizeResult {
 
 enum CreateUserStatus {
     case success
-    case emailAlredyUsed
-    case incorrectEmail
-    case weakEmail
+    case emptyUserData
+    case duplicateEmail
+    case unknowError
 }
 
 class CreateUserResult {
@@ -93,9 +94,38 @@ class DAL {
     }
     
     func createUser(login: String, password: String) -> Observable<CreateUserResult> {
-        return Observable
-            .just(CreateUserResult(status: .success))
-            .delay(1.0, scheduler: MainScheduler.instance)
+        let params = [
+            "username": login,
+            "email": login,
+            "password": password,
+        ]
+        
+        return Observable<CreateUserResult>
+            .create({observer in
+                request("http://193.124.114.46:3001/users", method: .post, parameters: params)
+                    .response(completionHandler: {result in
+                        let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
+                        let response = (result.response?.statusCode ?? 0, utf8Text)
+
+                        switch response {
+                        case (201, _):
+                            observer.onNext(CreateUserResult(status: .success))
+                            break;
+                        case (400, "A user with that email exists"):
+                            observer.onNext(CreateUserResult(status: .duplicateEmail))
+                            break;
+                        case (400, "You must send username and password"):
+                            observer.onNext(CreateUserResult(status: .emptyUserData))
+                            break;
+                        case (_, _):
+                            observer.onNext(CreateUserResult(status: .unknowError))
+                            break;
+                        }
+                        observer.onCompleted()
+                    })
+                
+                return Disposables.create()
+            })
     }
     
     func getUserBalance(token: String) -> Observable<String> {

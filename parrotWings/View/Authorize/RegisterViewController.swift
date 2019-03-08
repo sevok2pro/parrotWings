@@ -23,18 +23,30 @@ class RegisterViewController: UIViewController {
     // ViewModelFields
     var onChangeMainPassword: (() -> Void)!
     var onChangeSubPassword: (() -> Void)!
-    var tryCreateUser: ((_ onSuccess: @escaping () -> Void) -> Void)!
+    var tryCreateUser: ((_ onSuccess: @escaping () -> Void, _ onError: @escaping (_ error: String) -> Void) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerViewModel.configure(view: self)
     }
     
+    private func successRegisterHandler() {
+        self.performSegue(withIdentifier: "MoveToMainApp", sender: "registerSuccess")
+    }
+    
+    private func errorRegisterHandler(_ error: String) {
+        let alert = UIAlertController(title: "Ошибка!", message: error, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Понял", style: UIAlertAction.Style.default, handler: {_ in
+            self.emailField.becomeFirstResponder()
+        }))
+        self.present(alert, animated: true)
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let status = sender as? String else {
-            self.tryCreateUser({() in
-                self.performSegue(withIdentifier: "MoveToMainApp", sender: "registerSuccess")
-            })
+            self.tryCreateUser(self.successRegisterHandler, self.errorRegisterHandler)
+
+    
             return false
         }
         if(status == "registerSuccess") {

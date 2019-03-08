@@ -8,4 +8,5 @@ target 'parrotWings' do
 
   # Pods for parrotWings
   pod 'RxSwift', '~> 4.0'
+  pod 'Alamofire', '~> 4.8'
 end
