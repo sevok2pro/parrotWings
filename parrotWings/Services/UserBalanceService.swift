@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class UserBalanceService {
-    let userBalance$: Observable<String>;
+    let userBalance$: Observable<Int>;
     let updateSignals$: BehaviorSubject = BehaviorSubject(value: true)
     init(userData: UserData) {
         self.userBalance$ = Observable
@@ -26,6 +26,7 @@ class UserBalanceService {
     func observeUserBalance() -> Observable<String> {
         return self.userBalance$
             .asObservable()
+            .map({next in String(next)})
     }
     
     func updateUserBalance() {

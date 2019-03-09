@@ -39,6 +39,10 @@ class UserData {
         }
         authTokenSubject.onNext(self.authToken)
     }
+    
+    public func getAuthToken() -> String? {
+        return self.authToken
+    }
 }
 
 let userData = UserData();

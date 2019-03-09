@@ -78,6 +78,12 @@ class TransactionResults {
 }
 
 class DAL {
+    private let userData: UserData
+    
+    init(userData: UserData) {
+        self.userData = userData
+    }
+    
     func getUsers(filterPharse: String?, portion: Int = 1, portionSize: Int = 20) -> Observable<GetUsersResult> {
         return Observable
             .just(GetUsersResult(
@@ -181,10 +187,37 @@ class DAL {
             })
     }
     
-    func getUserBalance(token: String) -> Observable<String> {
-        return Observable
-            .just(String(Int.random(in: 0..<10000)))
-            .delay(1.0, scheduler: MainScheduler.instance)
+    func getUserBalance(token: String) -> Observable<Int> {
+        guard let authToken: String = userData.getAuthToken() else {
+            return Observable.just(0)
+        }
+        return Observable<Int>
+            .create({observer in
+                request("http://193.124.114.46:3001/api/protected/user-info", method: .get, headers: ["Authorization": "Bearer " + authToken])
+                    .response(completionHandler: {result in
+                        let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
+                        let response = (result.response?.statusCode ?? 0, utf8Text)
+                        switch response {
+                        case (200, _):
+                            let data: Data = result.data ?? Data()
+                            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                            if let dictionary = json as? [String: Any] {
+                                if let userInfo = dictionary["user_info_token"] as? [String: Any] {
+                                    if let balance = userInfo["balance"] as? Int {
+                                        observer.onNext(balance)
+                                        observer.onCompleted()
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        case (_, _):
+                            print(response)
+                            break;
+                        }
+                    })
+                return Disposables.create()
+            })
     }
     
     func makeTransaction(recipientUserUid: String, amount: Int) -> Observable<TransactionResults> {
@@ -194,4 +227,4 @@ class DAL {
     }
 }
 
-let dal = DAL();
+let dal = DAL(userData: userData);
