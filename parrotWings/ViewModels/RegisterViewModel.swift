@@ -45,7 +45,11 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
                 .subscribe(onNext: {next in
                     switch next.status {
                     case .success:
-                        userData.setAuthToken(token: "lol")
+                        guard let token: String = next.token else {
+                            onError("Произошла неизвестная ошибка")
+                            return
+                        }
+                        userData.setAuthToken(token: token)
                         onComplete()
                         break;
                     case .emptyUserData:

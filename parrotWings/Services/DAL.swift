@@ -55,9 +55,9 @@ class CreateUserResult {
     let status: CreateUserStatus
     let token: String?
     
-    init(status: CreateUserStatus) {
+    init(status: CreateUserStatus, token: String? = nil) {
         self.status = status
-        self.token = status == .success ? String(Int.random(in: 0..<100)) : nil
+        self.token = status == .success && token != nil ? String(Int.random(in: 0..<100)) : nil
     }
 }
 
@@ -110,7 +110,7 @@ class DAL {
                                     observer.onNext(AuthorizeResult(status: .success, token: token))
                                     break;
                                 } else {
-                                    // print("not found key", dictionary)
+                                    // print("not found key id_token in dictionary")
                                 }
                             } else {
                                 // print("not cast value")
@@ -150,7 +150,19 @@ class DAL {
 
                         switch response {
                         case (201, _):
-                            observer.onNext(CreateUserResult(status: .success))
+                            let data: Data = result.data ?? Data()
+                            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                            if let dictionary = json as? [String: Any] {
+                                if let token = dictionary["id_token"] as? String {
+                                    observer.onNext(CreateUserResult(status: .success, token: token))
+                                    break;
+                                } else {
+                                    // print("not found key id_token in dictionary")
+                                }
+                            } else {
+                                // print("not cast value")
+                            }
+                            observer.onNext(CreateUserResult(status: .unknowError))
                             break;
                         case (400, "A user with that email exists"):
                             observer.onNext(CreateUserResult(status: .duplicateEmail))

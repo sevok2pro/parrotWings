@@ -8,21 +8,35 @@
 
 import Foundation
 import RxSwift
+import KeychainAccess
 
 class UserData {
-    var authToken: String? = nil
-    let authTokenSubject: BehaviorSubject<String?>
+    private var authToken: String? = nil
+    private let authTokenSubject: BehaviorSubject<String?>
+    private let keychain = Keychain(service: "com.parrotWings")
     
     init() {
         self.authTokenSubject = BehaviorSubject(value: nil)
+        do {
+            let token: String = try keychain.get("authToken")!
+            self.authTokenSubject.onNext(token)
+        } catch let error {
+            print(error)
+        }
     }
     
-    func observeAuthToken() -> Observable<String?> {
+    public func observeAuthToken() -> Observable<String?> {
         return authTokenSubject.asObservable();
     }
     
-    func setAuthToken(token: String){
+    public func setAuthToken(token: String) -> Void {
         self.authToken = token;
+        do {
+            try keychain.set(token, key: "authToken")
+        } catch let error {
+            print(error)
+            return;
+        }
         authTokenSubject.onNext(self.authToken)
     }
 }
