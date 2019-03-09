@@ -18,6 +18,10 @@ class MainBoardViewModel: ViewModel<MainBoardViewController> {
     public override func configure(view: MainBoardViewController) {
         _ = self.dal.getUserBalance()
             .subscribe(onNext: {(result: UserBalanceResult) in
+                if(result.status == .badToken) {
+                    print("require redirect to auth page")
+                    return;
+                }
                 guard let balance: Int = result.balance else {
                     return;
                 }

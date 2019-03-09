@@ -38,7 +38,9 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
         view.checkForNeedAuth = {onAlredyAuth in
             _ = dal.getUserBalance()
                 .subscribe(onNext: {next in
-                    onAlredyAuth()
+                    if (next.status == .success) {
+                        onAlredyAuth()
+                    }
                 })
         }
     }

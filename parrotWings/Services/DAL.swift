@@ -209,7 +209,11 @@ class DAL {
         }
         return Observable<UserBalanceResult>
             .create({observer in
-                request("http://193.124.114.46:3001/api/protected/user-info", method: .get, headers: ["Authorization": "Bearer " + authToken])
+                request(
+                        "http://193.124.114.46:3001/api/protected/user-info",
+                        method: .get,
+                        headers: ["Authorization": "Bearer " + authToken]
+                    )
                     .response(completionHandler: {result in
                         let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
                         let response = (result.response?.statusCode ?? 0, utf8Text)
@@ -221,16 +225,16 @@ class DAL {
                                 if let userInfo = dictionary["user_info_token"] as? [String: Any] {
                                     if let balance = userInfo["balance"] as? Int {
                                         observer.onNext(UserBalanceResult(status: .success, balance: balance))
-                                        observer.onCompleted()
                                     }
                                     break;
                                 }
                             }
                             break;
                         case (_, _):
-                            print(response)
+                            observer.onNext(UserBalanceResult(status: .badToken))
                             break;
                         }
+                        observer.onCompleted()
                     })
                 return Disposables.create()
             })
