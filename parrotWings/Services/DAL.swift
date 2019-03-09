@@ -38,9 +38,9 @@ class AuthorizeResult {
     let status: AuthorizeStatus;
     let token: String?;
     
-    init(status: AuthorizeStatus) {
+    init(status: AuthorizeStatus, token: String? = nil) {
         self.status = status
-        self.token = status == .success ? String(Int.random(in: 0..<100)) : nil
+        self.token = status == .success && token != nil ? token : nil
     }
 }
 
@@ -103,7 +103,19 @@ class DAL {
                         let response = (result.response?.statusCode ?? 0, utf8Text)
                         switch response {
                         case (201, _):
-                            observer.onNext(AuthorizeResult(status: .success))
+                            let data: Data = result.data ?? Data()
+                            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                            if let dictionary = json as? [String: Any] {
+                                if let token = dictionary["id_token"] as? String {
+                                    observer.onNext(AuthorizeResult(status: .success, token: token))
+                                    break;
+                                } else {
+                                    // print("not found key", dictionary)
+                                }
+                            } else {
+                                // print("not cast value")
+                            }
+                            observer.onNext(AuthorizeResult(status: .unknowError))
                             break;
                         case (400, "You must send email and password."):
                             observer.onNext(AuthorizeResult(status: .emptyAuthData))

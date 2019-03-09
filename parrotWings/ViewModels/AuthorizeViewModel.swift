@@ -18,8 +18,9 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                 .subscribe(onNext: {next in
                     switch next.status {
                     case .success:
-                        onSuccess()
                         userData.setAuthToken(token: "lol")
+                        print(next.token)
+                        onSuccess()
                         break;
                     case .emptyAuthData:
                         onFailure("Введите логин и пароль")
