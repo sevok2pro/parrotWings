@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainAccess
 
 class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
     public override func configure(view: AuthorizeViewController) {
@@ -30,6 +31,20 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                         onFailure("Произошла неизвестная ошибка")
                     }
                 })
+        }
+        
+        let keychain = Keychain(service: "com.parrotWings")
+        do {
+            try keychain.set("lol", key: "authToken")
+        } catch let error {
+            print(error)
+        }
+        
+        do {
+            let token: String = try keychain.get("authToken")!
+            print(token)
+        } catch let error {
+            print(error)
         }
     }
 }
