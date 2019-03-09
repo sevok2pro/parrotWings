@@ -19,7 +19,7 @@ class UserData {
         self.authTokenSubject = BehaviorSubject(value: nil)
         do {
             let token: String = try keychain.get("authToken")!
-            self.authTokenSubject.onNext(token)
+            self.setAuthToken(token: token)
         } catch let error {
             print(error)
         }

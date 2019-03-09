@@ -13,10 +13,14 @@ class AuthorizeViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     var tryAuth: ((_ onSuccess: @escaping () -> Void, _ onFailure: @escaping (_ error: String) -> Void) -> Void)!
+    var checkForNeedAuth: ((_ onAlredyAuth: @escaping () -> Void) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad();
         authorizeViewModel.configure(view: self)
+        self.checkForNeedAuth({() in
+            self.handleSuccessAuth()
+        })
     }
     
     func handleSuccessAuth() {

@@ -35,6 +35,12 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                     }
                 })
         }
+        view.checkForNeedAuth = {onAlredyAuth in
+            _ = dal.getUserBalance(token: "lol")
+                .subscribe(onNext: {next in
+                    onAlredyAuth()
+                })
+        }
     }
 }
 
