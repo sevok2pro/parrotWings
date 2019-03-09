@@ -26,7 +26,6 @@
 		E7E68708222A614A00DFAC33 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68707222A614A00DFAC33 /* RegisterViewController.swift */; };
 		E7E6870B222A8D3C00DFAC33 /* MainBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6870A222A8D3C00DFAC33 /* MainBoardViewController.swift */; };
 		E7E6870D222A8F4900DFAC33 /* SendMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6870C222A8F4900DFAC33 /* SendMoneyViewController.swift */; };
-		E7E68710222A93CA00DFAC33 /* UserBalanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6870F222A93CA00DFAC33 /* UserBalanceService.swift */; };
 		E7E68712222A99B000DFAC33 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68711222A99B000DFAC33 /* TransactionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		E7E68707222A614A00DFAC33 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E7E6870A222A8D3C00DFAC33 /* MainBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardViewController.swift; sourceTree = "<group>"; };
 		E7E6870C222A8F4900DFAC33 /* SendMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyViewController.swift; sourceTree = "<group>"; };
-		E7E6870F222A93CA00DFAC33 /* UserBalanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBalanceService.swift; sourceTree = "<group>"; };
 		E7E68711222A99B000DFAC33 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +147,6 @@
 			children = (
 				E7E68700222957F800DFAC33 /* DAL.swift */,
 				E7E68702222A5BC300DFAC33 /* UserData.swift */,
-				E7E6870F222A93CA00DFAC33 /* UserBalanceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				E7E686F92229336D00DFAC33 /* SelectUserForSendMoneyViewController.swift in Sources */,
 				E75DBD112231082800091262 /* AuthorizeViewModel.swift in Sources */,
 				E75DBD0F2230FBBC00091262 /* SendMoneyViewModel.swift in Sources */,
-				E7E68710222A93CA00DFAC33 /* UserBalanceService.swift in Sources */,
 				E7E68703222A5BC300DFAC33 /* UserData.swift in Sources */,
 				E7E686E422291E2A00DFAC33 /* AppDelegate.swift in Sources */,
 				E7E68712222A99B000DFAC33 /* TransactionDetailViewController.swift in Sources */,

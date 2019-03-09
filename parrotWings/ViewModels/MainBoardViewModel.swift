@@ -9,18 +9,22 @@
 import Foundation
 
 class MainBoardViewModel: ViewModel<MainBoardViewController> {
-    private var userBalanceService: UserBalanceService
+    private let dal: DAL
     
-    init(userBalanceService: UserBalanceService) {
-        self.userBalanceService = userBalanceService
+    init(dal: DAL) {
+        self.dal = dal
     }
     
     public override func configure(view: MainBoardViewController) {
-        _ = self.userBalanceService.observeUserBalance()
-            .subscribe(onNext: {balance in
-                view.balanceField.text = balance
+        _ = self.dal.getUserBalance()
+            .subscribe(onNext: {(result: UserBalanceResult) in
+                guard let balance: Int = result.balance else {
+                    return;
+                }
+                let balanceText: String = String(balance) + " PW"
+                view.balanceField.text = balanceText
             })
     }
 }
 
-let mainBoardViewModel = MainBoardViewModel(userBalanceService: userBalanceService)
+let mainBoardViewModel = MainBoardViewModel(dal: dal)
