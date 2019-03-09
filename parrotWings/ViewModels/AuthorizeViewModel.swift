@@ -18,8 +18,11 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                 .subscribe(onNext: {next in
                     switch next.status {
                     case .success:
-                        userData.setAuthToken(token: "lol")
-                        print(next.token)
+                        guard let token: String = next.token else {
+                            onFailure("Произошла неизвестная ошибка")
+                            return;
+                        }
+                        userData.setAuthToken(token: token)
                         onSuccess()
                         break;
                     case .emptyAuthData:
