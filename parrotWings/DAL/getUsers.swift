@@ -38,17 +38,20 @@ class GetUsersResult {
 
 extension DAL {
     func getUsers(filterPharse: String?) -> Observable<GetUsersResult> {
-        guard let authToken: String = userData.getAuthToken() else {
-            return Observable.empty()
+        guard let filter: String = filterPharse else {
+            return Observable.just(GetUsersResult(data: [], status: .emptyPharse))
         }
-        let filter: String = filterPharse ?? ""
+        guard let authToken: String = self.userData.getAuthToken() else {
+            return Observable.just(GetUsersResult(data: [], status: .unknowError))
+        }
+        let authHeader = ["Authorization": "Bearer " + authToken]
         return Observable<GetUsersResult>
             .create({observer in
                 request(
-                    "http://193.124.114.46:3001/api/protected/users/list",
+                    "\(self.serverPath)/api/protected/users/list",
                     method: .post,
                     parameters: ["filter": filter],
-                    headers: ["Authorization": "Bearer " + authToken]
+                    headers: authHeader
                     )
                     .response(completionHandler: {result in
                         let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
@@ -57,15 +60,21 @@ extension DAL {
                         switch response {
                         case (200, _):
                             let jsonArray = try? JSONSerialization.jsonObject(with: result.data ?? Data(), options: [])
-                            if let array = jsonArray as? [Any] {
-                                if let arrayOfUsers: Array<[String: Any]> = array as? Array<[String: Any]> {
-                                    var userData: Array<PublicUser> = []
-                                    for user in arrayOfUsers {
-                                        userData.append(PublicUser(name: user["name"] as! String, id: user["id"] as! Int))
-                                    }
-                                    observer.onNext(GetUsersResult(data: userData,status: .success))
-                                }
+                            
+                            guard let array = jsonArray as? [Any] else {
+                                observer.onNext(GetUsersResult(data: [], status: .unknowError))
+                                break;
                             }
+                            
+                            guard let arrayOfUsers: Array<[String: Any]> = array as? Array<[String: Any]> else {
+                                observer.onNext(GetUsersResult(data: [], status: .unknowError))
+                                break;
+                            }
+                            var userData: Array<PublicUser> = []
+                            for user in arrayOfUsers {
+                                userData.append(PublicUser(name: user["name"] as! String, id: user["id"] as! Int))
+                            }
+                            observer.onNext(GetUsersResult(data: userData,status: .success))
                             break;
                         case (401, "No search string."):
                             observer.onNext(GetUsersResult(data: [], status: .emptyPharse))

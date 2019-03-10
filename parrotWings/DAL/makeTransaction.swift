@@ -51,7 +51,7 @@ extension DAL {
         return Observable<TransactionResult>
             .create({observer in
                 request(
-                    "http://193.124.114.46:3001/api/protected/transactions",
+                    "\(self.serverPath)/api/protected/transactions",
                     method: .post,
                     parameters: ["name": recipientUserName, "amount": amount],
                     headers: ["Authorization": "Bearer " + authToken]

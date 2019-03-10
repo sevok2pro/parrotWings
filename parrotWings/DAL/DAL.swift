@@ -9,11 +9,12 @@
 import Foundation
 
 class DAL {
-    private let userData: UserData
+    public let userData: UserData
+    public let serverPath: String = "http://193.124.114.46:3001"
     
     init(userData: UserData) {
         self.userData = userData
     }
 }
 
-let dal = DAL(userData: userData);
+let dal = DAL(userData: userData)

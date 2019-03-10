@@ -32,11 +32,11 @@ extension DAL {
         let params = [
             "email": login,
             "password": password,
-            ]
+        ]
         
         return Observable<AuthorizeResult>
             .create({observer in
-                request("http://193.124.114.46:3001/sessions/create", method: .post, parameters: params)
+                request("\(self.serverPath)/sessions/create", method: .post, parameters: params)
                     .response(completionHandler: {result in
                         let utf8Text = String(data: result.data ?? Data(), encoding: .utf8)
                         let response = (result.response?.statusCode ?? 0, utf8Text)
@@ -44,13 +44,16 @@ extension DAL {
                         case (201, _):
                             let data: Data = result.data ?? Data()
                             let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                            if let dictionary = json as? [String: Any] {
-                                if let token = dictionary["id_token"] as? String {
-                                    observer.onNext(AuthorizeResult(status: .success, token: token))
-                                    break;
-                                }
+                            
+                            guard let dictionary = json as? [String: Any] else {
+                                observer.onNext(AuthorizeResult(status: .unknowError))
+                                break;
                             }
-                            observer.onNext(AuthorizeResult(status: .unknowError))
+                            guard let token = dictionary["id_token"] as? String else {
+                                observer.onNext(AuthorizeResult(status: .unknowError))
+                                break;
+                            }
+                            observer.onNext(AuthorizeResult(status: .success, token: token))
                             break;
                         case (400, "You must send email and password."):
                             observer.onNext(AuthorizeResult(status: .emptyAuthData))

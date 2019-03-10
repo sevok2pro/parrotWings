@@ -112,8 +112,8 @@
 			children = (
 				E7E68700222957F800DFAC33 /* DAL.swift */,
 				C6AA63EA22355854009F6641 /* authorize.swift */,
-				C6AA63EC2235594F009F6641 /* getUsers.swift */,
 				C6AA63EE22355990009F6641 /* createUser.swift */,
+				C6AA63EC2235594F009F6641 /* getUsers.swift */,
 				C6AA63F0223559C9009F6641 /* getUserBalance.swift */,
 				C6AA63F222355A0F009F6641 /* makeTransaction.swift */,
 			);
