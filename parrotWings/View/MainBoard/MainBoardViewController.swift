@@ -14,9 +14,14 @@ class MainBoardViewController: UIViewController {
         self.onLogout()
     }
     var onLogout: (() -> Void)!
+    var updateBalance: (() -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainBoardViewModel.configure(view: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateBalance()
     }
 }
