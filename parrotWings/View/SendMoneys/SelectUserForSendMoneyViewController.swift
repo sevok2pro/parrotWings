@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDelegate {
-    var data: [String]!
+    var data: [PublicUser]!
     var onSearchPharseChange: ((_ searchPharse: String) -> Void)!
     
     override func viewDidLoad() {
@@ -31,8 +31,8 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? SelectUserForSendMoneyViewControllerTableViewCell else {
             fatalError("can not view this cell type")
         }
-        cell.userName.text = data[indexPath.row];
-        cell.userUid = data[indexPath.row]
+        cell.userName.text = data[indexPath.row].name
+        cell.user = data[indexPath.row]
         return cell
     }
     
@@ -47,6 +47,6 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
         guard let sendMoneyView = segue.destination as? SendMoneyViewController else {
             fatalError("incorrect view destinition")
         }
-        sendMoneyView.recipientUserUid = cell.userUid;
+        sendMoneyView.recipientUser = cell.user;
     }
 }

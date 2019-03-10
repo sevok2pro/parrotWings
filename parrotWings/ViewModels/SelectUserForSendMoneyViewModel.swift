@@ -19,11 +19,11 @@ class SelectUserForSendMoneyViewModel: ViewModel<SelectUserForSendMoneyViewContr
         }
         
         _ = searchBarInput$
-            .flatMapLatest({pharse -> Observable<[String]> in
+            .flatMapLatest({pharse -> Observable<[PublicUser]> in
                 return dal.getUsers(filterPharse: pharse)
-                    .map({(result: GetUsersResult) -> [String] in result.data.map({user in user.name})})
+                    .map({(result: GetUsersResult) -> [PublicUser] in result.data})
             })
-            .subscribe(onNext: {(data: [String]) in
+            .subscribe(onNext: {(data: [PublicUser]) in
                 view.data = data
                 view.tableView.reloadData()
             })

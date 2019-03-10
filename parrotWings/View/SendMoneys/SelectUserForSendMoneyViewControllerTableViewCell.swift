@@ -10,17 +10,14 @@ import UIKit
 
 class SelectUserForSendMoneyViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
-    var userUid: String!;
+    var user: PublicUser!;
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
