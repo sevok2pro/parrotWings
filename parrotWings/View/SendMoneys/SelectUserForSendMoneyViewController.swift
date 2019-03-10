@@ -11,7 +11,6 @@ import RxSwift
 
 class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDelegate {
     var data: [String]!
-    var onNeedMoreUsers: (() -> Void)!
     var onSearchPharseChange: ((_ searchPharse: String) -> Void)!
     
     override func viewDidLoad() {
@@ -39,14 +38,6 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.onSearchPharseChange(searchText)
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentHeight = Float(scrollView.contentSize.height)
-        let contentScroll = Float(scrollView.contentOffset.y + scrollView.frame.size.height)
-        if(contentScroll / contentHeight > 1) {
-            self.onNeedMoreUsers()
-        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

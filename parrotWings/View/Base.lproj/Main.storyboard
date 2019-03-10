@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="avl-eK-l7G">
-                                <rect key="frame" x="20" y="84" width="335" height="140.5"/>
+                                <rect key="frame" x="20" y="84" width="335" height="190.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-LG-2ZT">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -38,6 +38,13 @@
                                         <state key="normal" title="Перевести PW"/>
                                         <connections>
                                             <segue destination="nLB-MR-4u5" kind="show" id="yY0-2Z-Cby"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpe-gT-hrZ">
+                                        <rect key="frame" x="0.0" y="160.5" width="335" height="30"/>
+                                        <state key="normal" title="Выйти из приложения"/>
+                                        <connections>
+                                            <action selector="handleLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rex-aT-ghU"/>
                                         </connections>
                                     </button>
                                 </subviews>

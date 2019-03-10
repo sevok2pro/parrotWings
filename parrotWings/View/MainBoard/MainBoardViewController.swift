@@ -10,6 +10,10 @@ import UIKit
 
 class MainBoardViewController: UIViewController {
     @IBOutlet weak var balanceField: UILabel!
+    @IBAction func handleLogout(_ sender: Any) {
+        self.onLogout()
+    }
+    var onLogout: (() -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -28,6 +28,9 @@ class MainBoardViewModel: ViewModel<MainBoardViewController> {
                 let balanceText: String = String(balance) + " PW"
                 view.balanceField.text = balanceText
             })
+        view.onLogout = {() in
+            print("logout")
+        }
     }
 }
 
