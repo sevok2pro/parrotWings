@@ -16,5 +16,3 @@ class DAL {
         self.userData = userData
     }
 }
-
-let dal = DAL(userData: userData)

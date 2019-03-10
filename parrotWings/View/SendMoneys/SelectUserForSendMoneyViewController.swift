@@ -13,9 +13,12 @@ class SelectUserForSendMoneyViewController: UITableViewController, UISearchBarDe
     var data: [PublicUser]!
     var onSearchPharseChange: ((_ searchPharse: String) -> Void)!
     
+    let selectUserForSendMoneyViewModel: SelectUserForSendMoneyViewModel =
+        parrotWingsContainer.container.resolve(SelectUserForSendMoneyViewModel.self)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectUserForSendMoneyViewModel.configure(view: self)
+        self.selectUserForSendMoneyViewModel.configure(view: self)
 
     }
     

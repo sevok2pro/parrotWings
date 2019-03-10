@@ -13,12 +13,15 @@ class MainBoardViewController: UIViewController {
     @IBAction func handleLogout(_ sender: Any) {
         self.onLogout()
     }
+    
+    let mainBoardViewModel: MainBoardViewModel = parrotWingsContainer.container.resolve(MainBoardViewModel.self)!
+    
     var onLogout: (() -> Void)!
     var updateBalance: (() -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainBoardViewModel.configure(view: self)
+        self.mainBoardViewModel.configure(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

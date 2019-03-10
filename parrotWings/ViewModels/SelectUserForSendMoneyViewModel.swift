@@ -10,7 +10,13 @@ import Foundation
 import RxSwift
 
 class SelectUserForSendMoneyViewModel: ViewModel<SelectUserForSendMoneyViewController> {
+    private let dal: DAL
+    
     private var searchBarInput$: BehaviorSubject<String> = BehaviorSubject(value: "")
+    
+    init(dal: DAL) {
+        self.dal = dal
+    }
     
     public override func configure(view: SelectUserForSendMoneyViewController) {
         view.data = []
@@ -20,7 +26,7 @@ class SelectUserForSendMoneyViewModel: ViewModel<SelectUserForSendMoneyViewContr
         
         _ = searchBarInput$
             .flatMapLatest({pharse -> Observable<[PublicUser]> in
-                return dal.getUsers(filterPharse: pharse)
+                return self.dal.getUsers(filterPharse: pharse)
                     .map({(result: GetUsersResult) -> [PublicUser] in result.data})
             })
             .subscribe(onNext: {(data: [PublicUser]) in
@@ -29,5 +35,3 @@ class SelectUserForSendMoneyViewModel: ViewModel<SelectUserForSendMoneyViewContr
             })
     }
 }
-
-let selectUserForSendMoneyViewModel = SelectUserForSendMoneyViewModel();

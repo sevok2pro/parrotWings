@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 import KeychainAccess
 
 class UserData {
@@ -47,5 +46,3 @@ class UserData {
         self.setAuthToken(token: nil)
     }
 }
-
-let userData = UserData();

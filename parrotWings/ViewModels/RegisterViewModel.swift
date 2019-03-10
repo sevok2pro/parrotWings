@@ -9,7 +9,15 @@
 import Foundation
 
 class RegisterViewModel: ViewModel<RegisterViewController> {
+    private let userData: UserData
+    private let dal: DAL
+    
     private var passwordsIsNotEqual: Bool = false;
+    
+    init(userData: UserData, dal: DAL) {
+        self.userData = userData
+        self.dal = dal
+    }
     
     private func checkPasswordsForEquals(main: String, sub: String) -> Bool {
         if(main == sub) {
@@ -41,7 +49,7 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
             }
             let email: String = view.emailField.text ?? "";
             let password: String = view.passwordField.text ?? "";
-            _ = dal.createUser(login: email, password: password)
+            _ = self.dal.createUser(login: email, password: password)
                 .subscribe(onNext: {next in
                     switch next.status {
                     case .success:
@@ -49,7 +57,7 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
                             onError("Произошла неизвестная ошибка")
                             return
                         }
-                        userData.setAuthToken(token: token)
+                        self.userData.setAuthToken(token: token)
                         onComplete()
                         break;
                     case .emptyUserData:
@@ -65,5 +73,3 @@ class RegisterViewModel: ViewModel<RegisterViewController> {
         }
     }
 }
-
-let registerViewModel = RegisterViewModel()

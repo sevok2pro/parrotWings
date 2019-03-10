@@ -9,11 +9,19 @@
 import Foundation
 
 class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
+    private let userData: UserData
+    private let dal: DAL
+    
+    init(userData: UserData, dal: DAL) {
+        self.userData = userData
+        self.dal = dal
+    }
+    
     public override func configure(view: AuthorizeViewController) {
         view.tryAuth = {(onSuccess, onFailure) in
             let email: String = view.emailField.text ?? "";
             let password: String = view.passwordField.text ?? "";
-            _ = dal.authorize(login: email, password: password)
+            _ = self.dal.authorize(login: email, password: password)
                 .subscribe(onNext: {next in
                     switch next.status {
                     case .success:
@@ -21,7 +29,7 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                             onFailure("Произошла неизвестная ошибка")
                             return;
                         }
-                        userData.setAuthToken(token: token)
+                        self.userData.setAuthToken(token: token)
                         onSuccess()
                         break;
                     case .emptyAuthData:
@@ -36,7 +44,7 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
                 })
         }
         view.checkForNeedAuth = {onAlredyAuth in
-            _ = dal.getUserBalance()
+            _ = self.dal.getUserBalance()
                 .subscribe(onNext: {next in
                     if (next.status == .success) {
                         onAlredyAuth()
@@ -45,5 +53,3 @@ class AuthorizeViewModel: ViewModel<AuthorizeViewController> {
         }
     }
 }
-
-let authorizeViewModel = AuthorizeViewModel()

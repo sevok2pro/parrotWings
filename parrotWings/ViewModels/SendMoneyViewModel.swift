@@ -9,6 +9,12 @@
 import Foundation
 
 class SendMoneyViewModel: ViewModel<SendMoneyViewController> {
+    let dal: DAL
+    
+    init(dal: DAL) {
+        self.dal = dal
+    }
+    
     public override func configure(view: SendMoneyViewController) {
         view.recipientUserField.text = view.recipientUser.name
         
@@ -16,7 +22,7 @@ class SendMoneyViewModel: ViewModel<SendMoneyViewController> {
             guard let amount: Int =  Int(view.amountField.text!) else {
                 return
             }
-            _ = dal.makeTransaction(recipientUserName: view.recipientUser.name, amount: amount)
+            _ = self.dal.makeTransaction(recipientUserName: view.recipientUser.name, amount: amount)
                 .subscribe(onNext: {transactionResult in
                     if(transactionResult.status == .success) {
                         onSuccess(String(transactionResult.transaction!.id))
@@ -31,5 +37,3 @@ class SendMoneyViewModel: ViewModel<SendMoneyViewController> {
         }
     }
 }
-
-let sendMoneyViewModel = SendMoneyViewModel()

@@ -25,9 +25,11 @@ class RegisterViewController: UIViewController {
     var onChangeSubPassword: (() -> Void)!
     var tryCreateUser: ((_ onSuccess: @escaping () -> Void, _ onError: @escaping (_ error: String) -> Void) -> Void)!
     
+    let registerViewModel: RegisterViewModel = parrotWingsContainer.container.resolve(RegisterViewModel.self)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerViewModel.configure(view: self)
+        self.registerViewModel.configure(view: self)
     }
     
     private func successRegisterHandler() {

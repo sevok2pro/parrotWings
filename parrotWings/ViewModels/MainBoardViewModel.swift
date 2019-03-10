@@ -10,14 +10,16 @@ import Foundation
 
 class MainBoardViewModel: ViewModel<MainBoardViewController> {
     private let dal: DAL
+    private let userData: UserData
     
-    init(dal: DAL) {
+    init(dal: DAL, userData: UserData) {
         self.dal = dal
+        self.userData = userData
     }
     
     public override func configure(view: MainBoardViewController) {
         view.onLogout = {() in
-            userData.logout()
+            self.userData.logout()
         }
         view.updateBalance = {() in
             _ = self.dal.getUserBalance()
@@ -35,5 +37,3 @@ class MainBoardViewModel: ViewModel<MainBoardViewController> {
         }
     }
 }
-
-let mainBoardViewModel = MainBoardViewModel(dal: dal)

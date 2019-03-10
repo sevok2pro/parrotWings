@@ -44,7 +44,7 @@ class TransactionResult {
 
 extension DAL {
     func makeTransaction(recipientUserName: String, amount: Int) -> Observable<TransactionResult> {
-        guard let authToken: String = userData.getAuthToken() else {
+        guard let authToken: String = self.userData.getAuthToken() else {
             print("bad token")
             return Observable.empty()
         }

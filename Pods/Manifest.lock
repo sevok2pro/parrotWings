@@ -4,11 +4,13 @@ PODS:
   - RxAtomic (4.4.1)
   - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
+  - Swinject (2.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
-  - KeychainAccess
+  - KeychainAccess (~> 3.1)
   - RxSwift (~> 4.0)
+  - Swinject (~> 2.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - KeychainAccess
     - RxAtomic
     - RxSwift
+    - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
 
-PODFILE CHECKSUM: 203a907bf72f117725b1dcdb0a6d7025f1b478ca
+PODFILE CHECKSUM: 7f9b1d6213fda1db7731320f593000c4ae04c450
 
 COCOAPODS: 1.6.1

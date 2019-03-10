@@ -15,9 +15,11 @@ class AuthorizeViewController: UIViewController {
     var tryAuth: ((_ onSuccess: @escaping () -> Void, _ onFailure: @escaping (_ error: String) -> Void) -> Void)!
     var checkForNeedAuth: ((_ onAlredyAuth: @escaping () -> Void) -> Void)!
     
+    let authorizeViewModel: AuthorizeViewModel = parrotWingsContainer.container.resolve(AuthorizeViewModel.self)!
+    
     override func viewDidLoad() {
         super.viewDidLoad();
-        authorizeViewModel.configure(view: self)
+        self.authorizeViewModel.configure(view: self)
         self.checkForNeedAuth({() in
             self.handleSuccessAuth()
         })

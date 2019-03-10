@@ -14,6 +14,7 @@
 		C6AA63EF22355990009F6641 /* createUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA63EE22355990009F6641 /* createUser.swift */; };
 		C6AA63F1223559C9009F6641 /* getUserBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA63F0223559C9009F6641 /* getUserBalance.swift */; };
 		C6AA63F322355A0F009F6641 /* makeTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA63F222355A0F009F6641 /* makeTransaction.swift */; };
+		C6AA63F7223569E9009F6641 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA63F6223569E9009F6641 /* Container.swift */; };
 		E70134DC2230DD2C00975B31 /* MainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */; };
 		E70134DE2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */; };
 		E70134E02230DFB400975B31 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DF2230DFB400975B31 /* ViewModel.swift */; };
@@ -57,6 +58,7 @@
 		C6AA63EE22355990009F6641 /* createUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUser.swift; sourceTree = "<group>"; };
 		C6AA63F0223559C9009F6641 /* getUserBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUserBalance.swift; sourceTree = "<group>"; };
 		C6AA63F222355A0F009F6641 /* makeTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeTransaction.swift; sourceTree = "<group>"; };
+		C6AA63F6223569E9009F6641 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardViewModel.swift; sourceTree = "<group>"; };
 		E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewModel.swift; sourceTree = "<group>"; };
 		E70134DF2230DFB400975B31 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				E70134DA2230DCFC00975B31 /* ViewModels */,
 				E7E686FD2229548500DFAC33 /* View */,
 				E7E686E322291E2A00DFAC33 /* AppDelegate.swift */,
+				C6AA63F6223569E9009F6641 /* Container.swift */,
 				E7E686EA22291E2B00DFAC33 /* Assets.xcassets */,
 				E7E686EC22291E2B00DFAC33 /* LaunchScreen.storyboard */,
 				E7E686EF22291E2B00DFAC33 /* Info.plist */,
@@ -353,6 +356,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -362,6 +366,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -414,6 +419,7 @@
 				E7E68708222A614A00DFAC33 /* RegisterViewController.swift in Sources */,
 				E7E68706222A612600DFAC33 /* AuthorizeViewController.swift in Sources */,
 				E70134E02230DFB400975B31 /* ViewModel.swift in Sources */,
+				C6AA63F7223569E9009F6641 /* Container.swift in Sources */,
 				E7E6870B222A8D3C00DFAC33 /* MainBoardViewController.swift in Sources */,
 				C6AA63EF22355990009F6641 /* createUser.swift in Sources */,
 				C6AA63ED2235594F009F6641 /* getUsers.swift in Sources */,

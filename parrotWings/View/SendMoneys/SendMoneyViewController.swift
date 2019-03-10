@@ -24,9 +24,11 @@ class SendMoneyViewController: UIViewController {
     // from viewModel
     var trySendMoney: ((_ onSuccess: @escaping (_ transactionId: String) -> Void, _ onFailure: @escaping (_ error: String) -> Void) -> Void)!
     
+    let sendMoneyViewModel: SendMoneyViewModel = parrotWingsContainer.container.resolve(SendMoneyViewModel.self)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendMoneyViewModel.configure(view: self)
+        self.sendMoneyViewModel.configure(view: self)
     }
     
     func handleSuccessTransaction(transactionId: String) {
