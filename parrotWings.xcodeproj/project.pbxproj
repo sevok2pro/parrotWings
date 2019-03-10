@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3AF7134A284FD9ED701F537B /* Pods_parrotWings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */; };
+		C6AA63E322354B88009F6641 /* parrotWingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA63E222354B88009F6641 /* parrotWingsUITests.swift */; };
 		E70134DC2230DD2C00975B31 /* MainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */; };
 		E70134DE2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */; };
 		E70134E02230DFB400975B31 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70134DF2230DFB400975B31 /* ViewModel.swift */; };
@@ -29,10 +30,23 @@
 		E7E68712222A99B000DFAC33 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E68711222A99B000DFAC33 /* TransactionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C6AA63E522354B88009F6641 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7E686D822291E2A00DFAC33 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7E686DF22291E2A00DFAC33;
+			remoteInfo = parrotWings;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_parrotWings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A204CDD4ED064E88E9A53F /* Pods-parrotWings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parrotWings.release.xcconfig"; path = "Target Support Files/Pods-parrotWings/Pods-parrotWings.release.xcconfig"; sourceTree = "<group>"; };
 		7240B0CCD528F7DD5A0FCEAE /* Pods-parrotWings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-parrotWings.debug.xcconfig"; path = "Target Support Files/Pods-parrotWings/Pods-parrotWings.debug.xcconfig"; sourceTree = "<group>"; };
+		C6AA63E022354B88009F6641 /* parrotWingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = parrotWingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AA63E222354B88009F6641 /* parrotWingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parrotWingsUITests.swift; sourceTree = "<group>"; };
+		C6AA63E422354B88009F6641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E70134DB2230DD2C00975B31 /* MainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardViewModel.swift; sourceTree = "<group>"; };
 		E70134DD2230DF8800975B31 /* SelectUserForSendMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserForSendMoneyViewModel.swift; sourceTree = "<group>"; };
 		E70134DF2230DFB400975B31 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -57,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C6AA63DD22354B88009F6641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7E686DD22291E2A00DFAC33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,6 +95,22 @@
 				38F5F88024F0C5B515D53A52 /* Pods_parrotWings.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6AA63DB22354A23009F6641 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DAL;
+			sourceTree = "<group>";
+		};
+		C6AA63E122354B88009F6641 /* parrotWingsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C6AA63E222354B88009F6641 /* parrotWingsUITests.swift */,
+				C6AA63E422354B88009F6641 /* Info.plist */,
+			);
+			path = parrotWingsUITests;
 			sourceTree = "<group>";
 		};
 		DD6F2E517CA60006326A1613 /* Pods */ = {
@@ -102,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E686E222291E2A00DFAC33 /* parrotWings */,
+				C6AA63E122354B88009F6641 /* parrotWingsUITests */,
 				E7E686E122291E2A00DFAC33 /* Products */,
 				DD6F2E517CA60006326A1613 /* Pods */,
 				36179A19C1EA82573EA1F431 /* Frameworks */,
@@ -112,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E686E022291E2A00DFAC33 /* parrotWings.app */,
+				C6AA63E022354B88009F6641 /* parrotWingsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +158,7 @@
 		E7E686E222291E2A00DFAC33 /* parrotWings */ = {
 			isa = PBXGroup;
 			children = (
+				C6AA63DB22354A23009F6641 /* DAL */,
 				E7E686FE2229567800DFAC33 /* Services */,
 				E70134DA2230DCFC00975B31 /* ViewModels */,
 				E7E686FD2229548500DFAC33 /* View */,
@@ -189,6 +229,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C6AA63DF22354B88009F6641 /* parrotWingsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AA63E722354B88009F6641 /* Build configuration list for PBXNativeTarget "parrotWingsUITests" */;
+			buildPhases = (
+				C6AA63DC22354B88009F6641 /* Sources */,
+				C6AA63DD22354B88009F6641 /* Frameworks */,
+				C6AA63DE22354B88009F6641 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6AA63E622354B88009F6641 /* PBXTargetDependency */,
+			);
+			name = parrotWingsUITests;
+			productName = parrotWingsUITests;
+			productReference = C6AA63E022354B88009F6641 /* parrotWingsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		E7E686DF22291E2A00DFAC33 /* parrotWings */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7E686F222291E2B00DFAC33 /* Build configuration list for PBXNativeTarget "parrotWings" */;
@@ -218,6 +276,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Seva;
 				TargetAttributes = {
+					C6AA63DF22354B88009F6641 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E7E686DF22291E2A00DFAC33;
+					};
 					E7E686DF22291E2A00DFAC33 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -237,11 +299,19 @@
 			projectRoot = "";
 			targets = (
 				E7E686DF22291E2A00DFAC33 /* parrotWings */,
+				C6AA63DF22354B88009F6641 /* parrotWingsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C6AA63DE22354B88009F6641 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7E686DE22291E2A00DFAC33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +378,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C6AA63DC22354B88009F6641 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AA63E322354B88009F6641 /* parrotWingsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E7E686DC22291E2A00DFAC33 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +411,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C6AA63E622354B88009F6641 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7E686DF22291E2A00DFAC33 /* parrotWings */;
+			targetProxy = C6AA63E522354B88009F6641 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E7E686E722291E2A00DFAC33 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -353,6 +439,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C6AA63E822354B88009F6641 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZBYS4V9XUP;
+				INFOPLIST_FILE = parrotWingsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parrotWingsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = parrotWings;
+			};
+			name = Debug;
+		};
+		C6AA63E922354B88009F6641 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZBYS4V9XUP;
+				INFOPLIST_FILE = parrotWingsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.parrotWingsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = parrotWings;
+			};
+			name = Release;
+		};
 		E7E686F022291E2B00DFAC33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -514,6 +638,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C6AA63E722354B88009F6641 /* Build configuration list for PBXNativeTarget "parrotWingsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AA63E822354B88009F6641 /* Debug */,
+				C6AA63E922354B88009F6641 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E7E686DB22291E2A00DFAC33 /* Build configuration list for PBXProject "parrotWings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
