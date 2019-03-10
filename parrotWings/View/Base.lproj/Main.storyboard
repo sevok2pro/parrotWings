@@ -45,6 +45,7 @@
                                         <state key="normal" title="Выйти из приложения"/>
                                         <connections>
                                             <action selector="handleLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rex-aT-ghU"/>
+                                            <segue destination="bEm-Hb-UtG" kind="showDetail" id="9YC-AL-Ph3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -460,7 +461,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="urZ-ga-IuZ">
             <objects>
-                <tabBarController id="bEm-Hb-UtG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="authorizeViewController" id="bEm-Hb-UtG" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w51-Xh-0nX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

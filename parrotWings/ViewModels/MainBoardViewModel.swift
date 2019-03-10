@@ -29,7 +29,7 @@ class MainBoardViewModel: ViewModel<MainBoardViewController> {
                 view.balanceField.text = balanceText
             })
         view.onLogout = {() in
-            print("logout")
+            userData.logout()
         }
     }
 }

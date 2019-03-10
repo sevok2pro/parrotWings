@@ -66,7 +66,7 @@ class CreateUserResult {
     
     init(status: CreateUserStatus, token: String? = nil) {
         self.status = status
-        self.token = status == .success && token != nil ? String(Int.random(in: 0..<100)) : nil
+        self.token = status == .success && token != nil ? token : nil
     }
 }
 
@@ -189,11 +189,7 @@ class DAL {
                                 if let token = dictionary["id_token"] as? String {
                                     observer.onNext(AuthorizeResult(status: .success, token: token))
                                     break;
-                                } else {
-                                    // print("not found key id_token in dictionary")
                                 }
-                            } else {
-                                // print("not cast value")
                             }
                             observer.onNext(AuthorizeResult(status: .unknowError))
                             break;
@@ -236,11 +232,7 @@ class DAL {
                                 if let token = dictionary["id_token"] as? String {
                                     observer.onNext(CreateUserResult(status: .success, token: token))
                                     break;
-                                } else {
-                                    // print("not found key id_token in dictionary")
                                 }
-                            } else {
-                                // print("not cast value")
                             }
                             observer.onNext(CreateUserResult(status: .unknowError))
                             break;

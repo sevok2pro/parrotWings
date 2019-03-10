@@ -12,36 +12,39 @@ import KeychainAccess
 
 class UserData {
     private var authToken: String? = nil
-    private let authTokenSubject: BehaviorSubject<String?>
     private let keychain = Keychain(service: "com.parrotWings")
     
     init() {
-        self.authTokenSubject = BehaviorSubject(value: nil)
         do {
-            let token: String = try keychain.get("authToken")!
+            guard let token: String = try keychain.get("authToken") else {
+                return;
+            }
             self.setAuthToken(token: token)
         } catch let error {
             print(error)
         }
     }
     
-    public func observeAuthToken() -> Observable<String?> {
-        return authTokenSubject.asObservable();
-    }
-    
-    public func setAuthToken(token: String) -> Void {
-        self.authToken = token;
+    public func setAuthToken(token: String?) -> Void {
+        self.authToken = token
         do {
-            try keychain.set(token, key: "authToken")
+            guard let stringToken: String = token else {
+                try keychain.remove("authToken")
+                return
+            }
+            try keychain.set(stringToken, key: "authToken")
         } catch let error {
             print(error)
-            return;
+            return
         }
-        authTokenSubject.onNext(self.authToken)
     }
     
     public func getAuthToken() -> String? {
         return self.authToken
+    }
+    
+    public func logout() -> Void {
+        self.setAuthToken(token: nil)
     }
 }
 
