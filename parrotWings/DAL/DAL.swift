@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import Alamofire
 
 class DAL {
     private let userData: UserData
