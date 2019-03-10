@@ -345,7 +345,7 @@ class DAL {
                             observer.onNext(TransactionResult(status: .notEnouthMoney))
                             break;
                         case (_, _):
-                            print(response)
+                            observer.onNext(TransactionResult(status: .unknowError))
                             break;
                         }
                         
